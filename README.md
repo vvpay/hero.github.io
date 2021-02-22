@@ -57,10 +57,10 @@ i.用DigestUtils.md5Hex算法将“originalStr + "&key=" + apiKey”进行加密
 
 1.订单接口内容
 -
-1.创建订单接口
-i.请求地址：网关地址 + /open/api/order
-ii.请求方式：POST
-iii.Content-Type：application/json
+1.创建订单接口 <br>
+i.请求地址：网关地址 + /open/api/order<br>
+ii.请求方式：POST <br>
+iii.Content-Type：application/json <br>
 
 iv.请求参数
 参数名称  | 必须  | 数据类型 | 示例| 参数说明
@@ -68,8 +68,8 @@ iv.请求参数
  amount  | 是 | 整数 | 100 | 金额,以分为单位；最小值100，即1元
  orderNo  | 是 | 字符串(<50) | 123456789000 | 商户订单编号
  payMode  | 是 | 字符串 | 固定传: ebank | 支付模式：网银
- merchantNo  | 是 | 字符(<100) | 20200113185052721173545318 | 商户编号
- userId | 否 | 字符串(>=5, <= 8) | 12345 | 商户的玩家标识(用于提高成功率)
+ merchantNo  | 是 | 字符 | 20200113185052721173545318 | 商户编号
+ userId | 否 | 字符串(<100) | 12345 | 商户的玩家标识(用于提高成功率)
  payName | 否 | 字符串(< 30) | 李四 | 付款人姓名, 如果参数为空, 会先跳转到系统收集付款人姓名页面
  ts  | 是 | 整数 | 1575948756 | 商户订单时间戳（秒级）
  notifyUrl  | 否 | 字符串 | https://www.baidu.com/notify | 后台通知地址
@@ -88,49 +88,60 @@ ivv.响应参数
  systemOrderNo | 否 | 字符串 | 202134134312432 | 系统订单编号
 
 
-ivvv.响应代码说明
+vvv.响应代码说明
 code  | comment  
  ---- | -----
-
-200	| 成功	
-999	| 系统维护中	
-500	| 系统其他错误	系统其他错误(保留请求与响应报文联系客服)
-100	| 商户编号错误	
-101	| 账户未开放	联系客服
-102	| 密钥不存在	前往管理后台生成
-103	| 账号配置异常	联系客服
-104	| 账号设置异常	联系客服
-105	| 签名异常	
-106	| 时间戳错误	订单时间戳超出范围
-107	| 订单号重复	
-108	| 订单已存在	
-109	| 金额不在指定范围	
-
+200 | 成功	
+999 | 系统维护中	
+500 | 系统其他错误	系统其他错误(保留请求与响应报文联系客服)
+100 | 商户编号错误	
+101 | 账户未开放	联系客服
+102 | 密钥不存在	前往管理后台生成
+103 | 账号配置异常	联系客服
+104 | 账号设置异常	联系客服
+105 | 签名异常	
+106 | 时间戳错误	订单时间戳超出范围
+107 | 订单号重复	
+108 | 订单已存在	
+109 | 金额不在指定范围	
 
 
-请求示例:
-{
-	"amount": 100,
-  "orderNo": "123456",
-  "payMode": "ebank",
-	"merchantNo": "20200113185052721",
-  "userId": "123456"
-  "payName": "张三",
-  "ts": 1590820729,
-	"notifyUrl": "https://www.baidu.com/notify",
-	"returnUrl": "",
-	"sign": "D6AD3B550C0D646F3A71F807E02EB2FE",
-}
 
-响应示例
-{
-	"code": 200,
-	"comment": "成功",
-	"gatewayUrl": "支付链接",
-	"merchantNo": "20200113185052721",
-	"orderNo": "123456",
-	"systemOrderNo": "123456"
-}
+I.请求示例: <br>
+	{
+		"amount": 100,
+
+		"orderNo": "123456",
+
+		"payMode": "ebank",
+
+		"merchantNo": "20200113185052721",
+
+		"userId": "123456"
+
+		"ts": 1590820729,
+
+		"notifyUrl": "https://www.baidu.com/notify",
+
+		"returnUrl": "",
+
+		"sign": "D6AD3B550C0D646F3A71F807E02EB2FE",
+	}
+
+II.响应示例 <br>
+	{
+		"code": 200,
+		
+		"comment": "成功",
+		
+		"gatewayUrl": "支付链接",
+		
+		"merchantNo": "20200113185052721",
+		
+		"orderNo": "123456",
+		
+		"systemOrderNo": "123456"
+	}
 
 2.查询订单接口
 
@@ -172,17 +183,17 @@ v.请求参数
  vvv.响应代码说明
  code  | comment  
  ---- | ----- 
- 200	| 成功	
- 500	| 系统其他错误	系统其他错误(保留请求与响应报文联系客服)
- 100	| 商户编号错误	
- 102	| 密钥不存在	前往管理后台生成
- 105	| 签名异常	
- 106	| 时间戳错误	订单时间戳超出范围
- 110	订单不存在	
+ 200 | 成功	
+ 500 | 系统其他错误	系统其他错误(保留请求与响应报文联系客服)
+ 100 | 商户编号错误	
+ 102 | 密钥不存在	前往管理后台生成
+ 105 | 签名异常	
+ 106 | 时间戳错误	订单时间戳超出范围
+ 110 订单不存在	
 
  
- **以订单状态（orderStatus）为主进行判断，支付超时后状态可能会收到支付成功状态通知，请注意处理**
- 订单状态（orderStatus）枚举
+ **以订单状态（orderStatus）
+ <span style="color: red">支付超时后状态可能会收到支付成功状态通知，请注意处理**</span>
 
  值  | 说明  
  ---- | -----   
@@ -217,24 +228,38 @@ ii.通知参数
  sign  | 是 | 字符串 | 2A1FEB481909CBE0CA | 签名
  
   例：
-  curl -X POST "回调地址"
-  -H 'content-type: application/json'
+  curl -X POST "回调地址" <br>
+  -H 'content-type: application/json' <br>
   -d '{
-      "merchantNo":"20200113185052721173545318",
-      "orderNo":"o-1008614",
-      "systemOrderNo":"20200113185052721173545",
-      "amount":100,
-      "realAmount":99,
-      "payMode":"ebank",
-      "productName":"张三",
-      "bankNo":"628888888888",
-      "bankName":"中国工商银行",
-      "bankCode":"ICBC",
-      "payStatus":30,
-      "orderStatus":50,
-      "ts":1581585888
-      "payTime":1581586702,
-      "sign":"3aff08ebde950423acbc267e363588ec",
+	      "merchantNo":"20200113185052721173545318",
+	      
+	      "orderNo":"o-1008614",
+	      
+	      "systemOrderNo":"20200113185052721173545",
+	      
+	      "amount":100,
+	      
+	      "realAmount":99,
+	      
+	      "payMode":"ebank",
+	      
+	      "productName":"张三",
+	      
+	      "bankNo":"628888888888",
+	      
+	      "bankName":"中国工商银行",
+	      
+	      "bankCode":"ICBC",
+	      
+	      "payStatus":30,
+	      
+	      "orderStatus":50,
+	      
+	      "ts":1581585888,
+	      
+	      "payTime":1581586702,
+	      
+	      "sign":"3aff08ebde950423acbc267e363588ec"
   }'
  
  
