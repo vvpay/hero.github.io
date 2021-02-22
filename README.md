@@ -62,7 +62,10 @@ i.请求地址：网关地址 + /open/api/order<br>
 ii.请求方式：POST <br>
 iii.Content-Type：application/json <br>
 
+---
 `请求参数`
+
+---
 参数名称  | 必须  | 数据类型 | 示例| 参数说明
  ---- | ----- | ------------  | ------    | ------
  amount  | 是 | 整数 | 100 | 金额,以分为单位；最小值100，即1元
@@ -87,7 +90,7 @@ iii.Content-Type：application/json <br>
  orderNo | 是 | 字符串 | 123456789000 | 商户订单编号
  systemOrderNo | 否 | 字符串 | 202134134312432 | 系统订单编号
 
-
+---
 `响应代码说明`
 code  | comment  
  ---- | -----
