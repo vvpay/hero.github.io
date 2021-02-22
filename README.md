@@ -48,11 +48,11 @@ amount=100&merchantNo=20200113185052721173545318&notifyUrl=https%3A%2F%2Fwww.bai
 2.DigestUtils.md5Hex(originalStr + "&key=" + apiKey) <br>
 i.用DigestUtils.md5Hex算法将“originalStr + "&key=" + apiKey”进行加密得到签名信息
 
-3.[c# demo](https://github.com/vvpay/hero.github.io/tree/master/C%23-demo)
+#3.[c# demo](https://github.com/vvpay/hero.github.io/tree/master/C%23-demo)
 
-4.[java demo](https://github.com/vvpay/hero.github.io/tree/master/java)
+#4.[java demo](https://github.com/vvpay/hero.github.io/tree/master/java)
 
-5.[php demo](https://github.com/vvpay/hero.github.io/tree/master/php)
+#5.[php demo](https://github.com/vvpay/hero.github.io/tree/master/php)
 
 
 1.订单接口内容
@@ -62,7 +62,7 @@ i.请求地址：网关地址 + /open/api/order<br>
 ii.请求方式：POST <br>
 iii.Content-Type：application/json <br>
 
-iv.请求参数
+#请求参数
 参数名称  | 必须  | 数据类型 | 示例| 参数说明
  ---- | ----- | ------------  | ------    | ------
  amount  | 是 | 整数 | 100 | 金额,以分为单位；最小值100，即1元
@@ -77,7 +77,7 @@ iv.请求参数
  sign  | 是 | 字符串 | 2A1FEB481909CBE0CA823D6FA31... | 参数签名，请按照签名算法生成
  
 
-ivv.响应参数
+#响应参数
 参数名称  | 必须  | 数据类型 | 示例| 参数说明
  ---- | ----- | ------  | ------    | ------
  code  | 是 | 整数 | 200 | 响应代码
@@ -88,7 +88,7 @@ ivv.响应参数
  systemOrderNo | 否 | 字符串 | 202134134312432 | 系统订单编号
 
 
-vvv.响应代码说明
+#响应代码说明
 code  | comment  
  ---- | -----
 200 | 成功	
@@ -107,7 +107,7 @@ code  | comment
 
 
 
-I.请求示例: <br>
+#请求示例: <br>
 	{
 	
 		"amount": 100,
@@ -129,7 +129,7 @@ I.请求示例: <br>
 		"sign": "D6AD3B550C0D646F3A71F807E02EB2FE",
 	}
 
-II.响应示例 <br>
+#响应示例 <br>
 	{
 	
 		"code": 200,
@@ -153,7 +153,7 @@ ii.请求方式：POST<br>
 iii.Content-Type：application/json<br>
 iv.请求地址：网关地址 + /open/api/order/query  <br>
 
-v.请求参数
+#请求参数
 参数名称  | 必须  | 数据类型 | 示例| 参数说明
  ---- | ----- | ------  | ------    | ------
  merchantNo  | 是 | 字符串 | 20200113185052721173545318 | 商户编号
@@ -161,7 +161,7 @@ v.请求参数
  ts  | 是 | 整数 | 1575948756 | 商户订单时间戳（秒级）
  sign  | 是 | 字符串 | 2A1FEB481909CBE0CA823D6FA31... | 参数签名，请按照签名算法生成
  
- vv.响应参数(参数必须: T = 查询成功必须返回)
+ #响应参数(参数必须: T = 查询成功必须返回)
 参数名称  | 必须  | 数据类型 | 示例| 参数说明
  ---- | ----- | ------  | ------    | ------
  code  | 是 | 整数 | 200 | 响应代码
@@ -183,7 +183,7 @@ v.请求参数
  sign  | T | 字符串 | 2A1FEB481909CBE0CA | 签名
  
  
- vvv.响应代码说明
+ #响应代码说明
  code  | comment  
  ---- | ----- 
  200 | 成功	
@@ -195,10 +195,8 @@ v.请求参数
  110 | 订单不存在	
 
  
- IVV.订单状态（orderStatus）<br>
- ----
- 支付超时后状态可能会收到支付成功状态通知，请注意处理
- ----
+ #订单状态（orderStatus）<br>
+ 注!!!支付超时后状态可能会收到支付成功状态通知，请注意处理 <br>
  值  | 说明  
  ---- | -----   
  30  | 支付等待中
@@ -212,7 +210,7 @@ v.请求参数
  -
  i.当创建订单时传入异步回调地址时，订单结束后（用户取消订单(-30)、用户支付超时（-40）、订单失败（-50）、订单已完成（50））进行通知，总共通知3次，间隔时间分别为0s,15s,60s，超时时间为10s，处理成  功后返回 success，返回其他字符表示处理失败，会继续进行后续通知。
 
-ii.通知参数
+#通知参数
 参数名称  | 必须  | 数据类型 | 示例| 参数说明
  ---- | ----- | ------  | ------    | ------
  merchantNo  | 是 | 字符(<100) | 20200113185052721173545318 | 商户编号
@@ -231,7 +229,7 @@ ii.通知参数
  payTime  | 否 | 整数 | 1575948756 | 支付时间
  sign  | 是 | 字符串 | 2A1FEB481909CBE0CA | 签名
  
-  例：
+  #例：
   curl -X POST "回调地址" <br>
   -H 'content-type: application/json' <br>
   -d '{
