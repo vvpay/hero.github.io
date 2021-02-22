@@ -173,8 +173,8 @@ iv.请求地址：网关地址 + /open/api/order/query  <br>
  merchantNo  | 是 | 字符(<100) | 20200113185052721173545318 | 商户编号
  orderNo | 是 | 字符串 | 123456789000 | 商户订单编号
  systemOrderNo | T | 字符串 | 202134134312432 | 系统订单编号
- amount  | T | 整数 | 100 | 订单金额
- realAmount  | T | 整数 | 99 | 订单实际支付金额
+ amount  | T | 整数 | 100 | 订单金额;分
+ realAmount  | T | 整数 | 99 | 订单实际支付金额;分
  payMode  | T | 字符串 | ebank | 支付模式
  productName  | 否 | 字符串 | 张三 | 持卡人
  bankNo  | 否 | 字符串 | 628888888888 | 银行卡号
@@ -223,8 +223,8 @@ iv.请求地址：网关地址 + /open/api/order/query  <br>
  merchantNo  | 是 | 字符(<100) | 20200113185052721173545318 | 商户编号
  orderNo | 是 | 字符串 | 123456789000 | 商户订单编号
  systemOrderNo | 是 | 字符串 | 202134134312432 | 系统订单编号
- amount  | 是 | 整数 | 100 | 订单金额
- realAmount  | 是 | 整数 | 99 | 订单实际支付金额
+ amount  | 是 | 整数 | 100 | 订单金额;分
+ realAmount  | 是 | 整数 | 99 | 订单实际支付金额;分
  payMode  | 是 | 字符串 | ebank | 支付模式
  productName  | 否 | 字符串 | 张三 | 持卡人
  bankNo  | 否 | 字符串 | 628888888888 | 银行卡号
