@@ -48,11 +48,11 @@ amount=100&merchantNo=20200113185052721173545318&notifyUrl=https%3A%2F%2Fwww.bai
 2.DigestUtils.md5Hex(originalStr + "&key=" + apiKey) <br>
 i.用DigestUtils.md5Hex算法将“originalStr + "&key=" + apiKey”进行加密得到签名信息
 
-3.[c# demo](https://github.com/vvpay/hero.github.io/tree/master/C%23-demo)
+3.[c# demo](https://github.com/vvpay/hero.github.io/blob/main/demo/C%23Demo.txt)
 
-4.[java demo](https://github.com/vvpay/hero.github.io/tree/master/java)
+4.[java demo](https://github.com/vvpay/hero.github.io/blob/main/demo/javaDemo.txt)
 
-5.[php demo](https://github.com/vvpay/hero.github.io/tree/master/php)
+5.[php demo](https://github.com/vvpay/hero.github.io/blob/main/demo/php-demo%20.txt)
 
 
 1.订单接口内容
